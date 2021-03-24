@@ -1,0 +1,24 @@
+        <p><%= link_to "Bookers",root_path %></p>
+
+    <% if user_signed_in? %>
+    <%#ログイン時の表示 %>
+        <p><%= link_to "Home",user_path(current_user) %></p>
+        <p><%= link_to "Users",users_path %></p>
+        <p><%= link_to "Books",books_path %></p>
+        <p><%= link_to "logout", destroy_user_session_path, method: :delete %></p>
+
+      <%#<li><%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+
+      <%#ログアウト後の表示 %>
+    <% else %>
+        <p><%= link_to "Home",root_path %></p>
+        <p><%= link_to "About",home_about_path %></p>
+        <p><%= link_to "sign up", new_user_registration_path %></p>
+        <p><%= link_to "login", new_user_session_path %></p>
+    <% end %>
+
+
+
+    <footer>
+     <p>Copyright PicTweet 2019.</p>
+    </footer>
