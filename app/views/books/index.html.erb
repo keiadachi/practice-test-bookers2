@@ -1,2 +1,31 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+ <h2>Books</h2>
+ <table>
+    <thead>
+        <tr>
+            <th></th>  <%#一個ずらす必要ある%>
+            <th>Title</th>
+            <th>Opinion</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+       <% @books.each do |book| %>
+    　　<tr>
+    　　 <td></td>
+         <td> <%= book.title %> </td>
+         <td> <%= book.body %> </td>
+    　　</tr>
+    　 <% end %>
+</table>
+  
+  
+  
+ <h2>New book</h2>
+  <%= form_with model:@book, local: true do |f| %>
+<h5>Title</h5> 
+  <%= f.text_field :title %>
+<h5>Opinion</h5> 
+  <%= f.text_area :body %>
+<p><%= f.submit 'Create Book' %>
+
+  <% end %>
