@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   
+  before_action :authenticate_user!, except: [:top, :about]
+  
   before_action :configure_permitted_parameters, if: :devise_controller?
   #deviseが使われる前に以下の内容が実行される
 

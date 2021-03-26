@@ -2,10 +2,12 @@ class BooksController < ApplicationController
   
   def new 
     @book = Book.new
+    @user_image = User_image.new
   end
   
   def index
     @books = Book.all
+    @user = current_user
   end
 
   def show
@@ -31,3 +33,4 @@ private
 
   
 end
+
