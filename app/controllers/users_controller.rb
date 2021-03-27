@@ -2,10 +2,12 @@ class UsersController < ApplicationController
   
   def new
    @user = User.new
+   @book = Book.new
   end
   
   def create
     @book = Book.new(book_params)
+    @book.user_id = current_user.id
     @book.save
   end
   
@@ -17,8 +19,10 @@ class UsersController < ApplicationController
 
   def show
    @user = User.find(params[:id])
+   #userinfo兼@books用
    @books = @user.books
-   #userを拾ってきてから@booksでuser.booksを作り上げる
+   #@userを拾ってきてから@booksでuser.booksを作り上げる
+   @book = Book.new
   end
 
   def edit
