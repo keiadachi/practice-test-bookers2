@@ -1,3 +1,7 @@
+<%= flash[:book] %>
+<%= render 'homes/form' %>
+
+
 <h2>Book detail</h2>
 <table>
   <tbody>
@@ -18,9 +22,9 @@
     <% end %>
   </tbody>
 </table>
-        
-        
-        
+
+
+
   <h3>user info</h3>
   <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size:'100x100', class: "attachment user profile_image fallback" %>
     <table>
@@ -33,8 +37,8 @@
     <p><%= link_to "プロフィール編集", edit_user_path(@user)%></p>
     <% end %>
   </div>
-  
-  
+
+
   <h2>New book</h2>
   <%= form_with model:@book, local: true do |f| %>
 <h5>Title</h5>
