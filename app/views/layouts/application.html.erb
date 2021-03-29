@@ -13,3 +13,8 @@
     <%= yield %>
   </body>
 </html>
+
+  <% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: key) %>
+  <% end %>
+    <%#ユーザーログイン成功時のフラッシュメッセージ%>
